@@ -15,6 +15,7 @@ var find_by_email = function(email, callback) {
     findUrl = viewUrl + '?key=\"' + email + '\"'
     couch.get(dbName, findUrl).then(
         function(data, header, status) {
+            console.log("Succes - find by email");
             callback(data.data.rows[0])
         },
         function(err) {
@@ -27,10 +28,11 @@ var find_by_id = function(id, callback) {
     couch.get(dbName, id).then(
         function(data, header, status) {
             //console.log(data.data);
+            console.log("Succes - find by id");
             callback(data.data);
         },
         function(err) {
-            console.log("Erro in searching by id");
+            console.log("Error in searching by id");
         }
     )
 }
