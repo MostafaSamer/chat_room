@@ -37,6 +37,7 @@ var find_by_id = function(id, callback) {
     )
 }
 
+
 var add_new_user = function(name, email, pass) {
     couch.uniqid().then(function(ids) {
         const id = ids[0];
@@ -58,5 +59,5 @@ var add_new_user = function(name, email, pass) {
 module.exports = {
     find_by_email: find_by_email,
     add_new_user: add_new_user,
-    find_by_id: find_by_id
+    find_by_id: find_by_id,
 };

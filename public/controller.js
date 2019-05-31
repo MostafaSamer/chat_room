@@ -3,23 +3,12 @@ const data = require('../model/data');
 
 module.exports = function(app, http) {
 
-    app.get('/', (req, res)=> {
+    app.get('/', async (req, res)=> {
         var userdata = req.flash('user_info')[0];
         var valid_login = req.flash('login_res')[0];
-        var friends = [];
-        for (var i = 0; i < userdata.friends.length; i++) {
-            data.find_by_id(userdata.friends[i][0], function(friend_data) {
-                //console.log("Function in loop");
-                //console.log(friend_data);
-                friends.push(friend_data);
-                console.log("in the loop " + friends);
-            })
-        }
-        console.log("OUT the loop " + friends);
         if (valid_login == '1') {
             res.render("home", {
                 user: userdata,
-                friend: friends
             });
         } else {
             res.redirect
