@@ -4,6 +4,7 @@ $(function() {
     let socket = io();
     let mess = '';  // mess text
     let name = $('#user_name').val(); // user name
+    let group_id = $('#group_id').text(); // user name
     let new_mess = $('#new_mess'); // mess input field
     //let new_user = $('#new_user'); // mess input field
 
@@ -24,7 +25,7 @@ $(function() {
         if (new_mess.val() != '') {
             mess = new_mess.val();
             new_mess.val('');
-            socket.emit('new:mess', {name: name, mess: mess})
+            socket.emit('new:mess', {name: name, mess: mess, id: group_id})
         }
     })
 
@@ -37,7 +38,9 @@ $(function() {
     */
 
     socket.on('new:mess', function(mess_obj) {
-        $('#message_box').append($('<div class="msg new-chat-message">').html('<span class="member-name" style="font-weight: bold">' + mess_obj.name + '</span>: ' + mess_obj.mess))
+        if (mess_obj.id == group_id) {
+            $('#message_box').append($('<div class="msg new-chat-message">').html('<span class="member-name" style="font-weight: bold">' + mess_obj.name + '</span>: ' + mess_obj.mess))
+        }
     })
 
 })

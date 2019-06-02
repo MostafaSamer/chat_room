@@ -17,6 +17,7 @@
                 <br><br>
                 <div class="enter_mess_form">
                     <input type="hidden" name="" id="user_name" value="<%= user %>">
+                    <label for="" id="group_id"><%= group %></label>
                     <input type="text" name="mess" value="" class="form-control" id="new_mess">
                     <br>
                     <div class="text-center">
@@ -28,7 +29,10 @@
                 <div class="form text-center">
                     <form class="" action="/newUser" method="post">
                         <div class="enter_name_form" >
-                            <input type="text" name="user" value="" class="form-control" id="new_user">
+                            <input type="text" name="user" value="" placeholder="User Name" class="form-control" id="new_user">
+                            <br><br>
+                            <input type="text" name="group" value="" placeholder="Group id" class="form-control" id="new_user">
+                            <label for="group">Enter The group id to join, leave it blank to create new one</label>
                             <br><br>
                             <button type="submit" name="button" class="btn btn-primary">Enter new User</button>
                         </div>
@@ -41,5 +45,5 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="/index.js" charset="utf-8"></script>
+    <script src="/new_mess.js" charset="utf-8"></script>
 </html>
