@@ -1,15 +1,14 @@
 const router = require('express').Router();
 
 function render_home_page(req, res) {
-    var user = req.session.user;
-    if (req.session.user) {
-
-    } else {
-        
-    }
+    res.render('home');
     res.end();
 }
 
 router.get('/', render_home_page)
+
+router.get('/logout', (req, res)=> {
+    res.redirect('/');
+})
 
 module.exports = router;
