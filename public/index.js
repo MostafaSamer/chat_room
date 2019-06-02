@@ -7,6 +7,7 @@ $(function() {
     let new_mess = $('#new_mess'); // mess input field
     let new_user = $('#new_user'); // mess input field
 
+    // Submit new User
     $('.submit_user').on('click', function(event) {
         if (new_user.val() != '') {
             name = new_user.val();
@@ -16,6 +17,7 @@ $(function() {
         }
     })
 
+    // Submit new Mess
     $('.submit_mess').on('click', function(event) {
         if (new_mess.val() != '') {
             mess = new_mess.val();
