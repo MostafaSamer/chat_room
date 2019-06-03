@@ -17,13 +17,16 @@ router.get('/', render_home_page)
 router.post('/newUser', (req, res, next)=> {
     req.session.user = req.body.user;
     if (req.body.group != '') {
-        groub_id = Number(req.body.group);
+        groub_id = Number(req.body.group);  // will go to the else in case the user enter a letter
         if (!new_group.check_id(groub_id)) {
             console.log("Get here");
             req.session.group = groub_id;
         }
          else {
-             console.log('Group does not exist');
+             res.render('error', {
+                 err_mess: 'This id does not exist, yet'
+             })
+             //res.end();
          }
     } else {
         new_group.rand_id(function(new_id) {
