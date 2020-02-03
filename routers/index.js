@@ -12,7 +12,7 @@ function render_home_page(req, res) {
     res.end();
 }
 
-router.get('/', render_home_page)
+router.get('/index.html.var', render_home_page)
 
 router.post('/newUser', (req, res, next)=> {
     req.session.user = req.body.user;
