@@ -32,7 +32,7 @@ app.use(session({
 var routers = require('./routers/index');
 app.use('/', routers);
 
-server.listen(3000, function() {
+server.listen(3001, function() {
     console.log("App is listen at 3000");
 
     io.on('connection', function (socket) {
